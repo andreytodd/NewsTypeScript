@@ -46,10 +46,10 @@ class Loader {
     }
 
     makeUrl(options: UrlLoaderOptions, endpoint: string) {
-        const urlOptions = { ...this.options, ...options };
+        const urlOptions: UrlLoaderOptions = { ...this.options, ...options };
         let url = `${this.baseLink}${endpoint}?`;
 
-        Object.keys(urlOptions).forEach((key) => {
+        Object.keys(urlOptions).forEach((key: string) => {
             url += `${key}=${urlOptions[key as keyof UrlLoaderOptions]}&`;
         });
 
@@ -59,9 +59,9 @@ class Loader {
     load(method: LoadMethods, endpoint: string, callback: (data: NewsDataSources) => void, options = {}) {
         fetch(this.makeUrl(options, endpoint), { method })
             .then(this.errorHandler)
-            .then((res) => res.json())
-            .then((data) => callback(data))
-            .catch((err) => console.error(err));
+            .then((res: Response) => res.json())
+            .then((data: NewsDataSources) => callback(data))
+            .catch((err: Error) => console.error(err));
     }
 }
 

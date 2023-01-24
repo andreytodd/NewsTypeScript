@@ -12,7 +12,7 @@ class App {
     }
 
     start(): void {
-        const sources = document.querySelector('.sources');
+        const sources: Element | null = document.querySelector('.sources');
         if (!sources) {
             throw new ReferenceError('Source is null!');
         }
