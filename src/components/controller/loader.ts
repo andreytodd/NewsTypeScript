@@ -16,6 +16,9 @@ interface GetRespOptions {
 enum LoadMethods {
     GET = 'GET',
     POST = 'POST',
+    PUT = 'PUT',
+    PATCH = 'PATCH',
+    DELETE = 'DELETE',
 }
 
 class Loader {
